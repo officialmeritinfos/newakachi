@@ -60,6 +60,7 @@ class Packages extends Controller
             'duration'=>['required','string'],
             'returnType'=>['required','numeric'],
             'numberOfReturns'=>['required','numeric'],
+            'referral'=>['required','numeric'],
             'status'=>['required','numeric'],
         ]);
 
@@ -78,7 +79,8 @@ class Packages extends Controller
         $dataPackage = [
             'name'=>$input['name'],'minAmount'=>$input['minAmount'],'maxAmount'=>$input['maxAmount'],
             'roi'=>$input['roi'],'numberOfReturns'=>$input['numberOfReturns'],'Duration'=>$input['duration'],
-            'returnType'=>$input['returnType'],'status'=>$input['status'],'isUnlimited'=>$unlimited
+            'returnType'=>$input['returnType'],'status'=>$input['status'],'isUnlimited'=>$unlimited,
+            'referral'=>$input['referral'],'withdrawEnd'=>2
         ];
 
         Package::where('id',$input['id'])->update($dataPackage);
@@ -119,6 +121,7 @@ class Packages extends Controller
             'duration'=>['required','string'],
             'returnType'=>['required','numeric'],
             'numberOfReturns'=>['required','numeric'],
+            'referral'=>['required','numeric'],
             'status'=>['required','numeric'],
         ]);
 
@@ -137,7 +140,8 @@ class Packages extends Controller
         $dataPackage = [
             'name'=>$input['name'],'minAmount'=>$input['minAmount'],'maxAmount'=>$input['maxAmount'],
             'roi'=>$input['roi'],'numberOfReturns'=>$input['numberOfReturns'],'Duration'=>$input['duration'],
-            'returnType'=>$input['returnType'],'status'=>$input['status'],'isUnlimited'=>$unlimited
+            'returnType'=>$input['returnType'],'status'=>$input['status'],'isUnlimited'=>$unlimited,
+            'referral'=>$input['referral'],'withdrawEnd'=>2
         ];
 
         Package::create($dataPackage);

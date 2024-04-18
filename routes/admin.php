@@ -112,6 +112,9 @@ Route::get('investors/{id}/activate-kyc',[Investors::class,'activateKyc'])
     ->name('investor.activate.kyc');
 Route::get('investors/{id}/deactivate-kyc',[Investors::class,'rejectKyc'])
     ->name('investor.deactivate.kyc');
+
+Route::post('investors/send-mail',[Investors::class,'mailUser'])
+    ->name('investor.sendMail');
 /*=============== PROMO ROUTE ==============================*/
 Route::get('promos',[PromoController::class,'landingPage'])->name('promo.index');
 Route::get('promo/{id}/edit',[PromoController::class,'edit'])->name('promo.edit');

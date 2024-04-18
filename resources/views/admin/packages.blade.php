@@ -23,6 +23,7 @@
                         <th>Duration</th>
                         <th>Return Type</th>
                         <th>Number of Returns</th>
+                        <th>Referral Bonus</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -44,6 +45,7 @@
                             <td>{{$package->Duration}}</td>
                             <td>{{$option->getReturnType($package->returnType)}}</td>
                             <td>{{$package->numberOfReturns}}</td>
+                            <td>{{$package->referral}}%</td>
                             <td>
                                 @switch($package->status)
                                     @case(1)

@@ -8,6 +8,7 @@ use App\Jobs\SendInvestmentNotification;
 use App\Models\Coin;
 use App\Models\Deposit;
 use App\Models\GeneralSetting;
+use App\Models\Mail;
 use App\Models\Package;
 use App\Models\User;
 use App\Notifications\InvestmentMail;
@@ -61,7 +62,8 @@ class Investors extends Controller
             'pageName' => 'Investor Details',
             'user'     =>  $user,
             'web'=>$web,
-            'investor'=>User::where('id',$id)->first()
+            'investor'=>User::where('id',$id)->first(),
+            'mails'=>Mail::where('user',$id)->orWhere('user',null)->orderBy('id','desc')->paginate()
         ];
 
         return view('admin.investor_detail',$dataView);
@@ -459,5 +461,32 @@ class Investors extends Controller
         User::where('id',$id)->update($data);
 
         return back()->with('success','Successful');
+    }
+    public function mailUser(Request $request)
+    {
+        $web = GeneralSetting::where('id',1)->first();
+        $user = Auth::user();
+        $validator = Validator::make($request->input(),[
+            'id'=>['required','numeric'],
+            'subject'=>['required','string'],
+            'content'=>['required']
+        ]);
+
+        if ($validator->fails()){
+            return back()->with('errors',$validator->errors());
+        }
+        $input = $validator->validated();
+
+        $investor = User::where('id',$input['id'])->first();
+
+        Mail::create([
+            'title'=>$input['subject'],
+            'content'=>$input['content'],
+            'user'=>$investor->id
+        ]);
+
+        $investor->notify(new InvestmentMail($investor, $input['content'], $input['subject']));
+
+        return back()->with('success','Mail Sent');
     }
 }

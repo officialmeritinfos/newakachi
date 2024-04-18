@@ -257,6 +257,11 @@
 {{--                                        style="margin-bottom:4px;" data-toggle="modal" data-target="#subLoan">--}}
 {{--                                    Clear Loan--}}
 {{--                                </button>--}}
+
+                                <button class="btn btn-outline-info"
+                                        style="margin-bottom:4px;" data-toggle="modal" data-target="#sendMail">
+                                    Send Mail
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -626,4 +631,46 @@
                 </div>
             </div>
         </div>
-    </div>@endsection
+    </div>
+    <div class="modal fade" id="sendMail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Send mail</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{{route('admin.investor.sendMail')}}">
+                        @csrf
+                        @include('templates.notification')
+                        <div class="form-row">
+
+                            <div class="form-group col-md-12">
+                                <label for="inputEmail4">Mail Subject</label>
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="Title"
+                                       name="subject">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="inputEmail4">Content</label>
+                                <textarea type="text" class="form-control summernote" id="inputEmail4" placeholder="Content"
+                                          name="content" rows="4"></textarea>
+                            </div>
+
+                            <div class="form-group col-md-12" style="display: none;">
+                                <label for="inputEmail4">Id</label>
+                                <input type="text" class="form-control" id="inputEmail4"
+                                       name="id" value="{{$investor->id}}">
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Send Mail</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

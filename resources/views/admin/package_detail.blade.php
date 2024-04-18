@@ -76,6 +76,11 @@
                                 @endif
                             </select>
                         </div>
+                        <div class="form-group col-md-12">
+                            <label for="inputAddress">Referral Bonus(%)</label>
+                            <input type="text" class="form-control" id="inputAddress"
+                                   name="referral" value="{{$package->referral}}">
+                        </div>
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Update</button>
