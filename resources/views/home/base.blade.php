@@ -185,7 +185,7 @@
                 </div>
 
                 <div class="col-lg-5 col-lg-2 col-md-12">
-                    <p><a href="{{url('/')}}"><img style="height: 100px; width: 100%;" src="{{asset('home/images/'.$web->logo)}}" alt="logo"></a></p>
+                    <p><a href="{{url('/')}}"><img style="width: 100%;" src="{{asset('home/images/'.$web->logo)}}" alt="logo"></a></p>
                     <p style="color: #fff !important;"> {{$siteName}} is dedicated to helping investors around the world reach
                         their desired investment goals and broaden their financial horizons.
                         <br><br>

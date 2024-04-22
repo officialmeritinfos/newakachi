@@ -48,7 +48,7 @@
     <div class="side-menu-logo bg-linear">
         <a href="{{url('account/dashboard')}}" class="navbar-brand d-flex align-items-center">
             <img src="{{asset('home/images/'.$web->logo)}}" alt="image" style="width: 100px;">
-            <span>{{$siteName}}</span>
+
         </a>
 
         <div class="burger-menu d-none d-lg-block">
