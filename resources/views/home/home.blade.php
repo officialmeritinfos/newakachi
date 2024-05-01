@@ -203,6 +203,37 @@
         </div>
         </div>
     </section>
+    <section class="pftb theme-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12" style="padding-bottom: 30px;">
+
+                    <h2 style="font-size: 23px; margin-bottom: 0; color: #fff !important;" class="tup text-center">
+                        SOME NOTABLE EVENTS HOSTED BY {{$siteName}}
+                    </h2>
+                </div>
+                <div class="col-lg-12 m-b-30" data-animate="fadeInLeft">
+                    <div class="carousel yuwnk7826stef" data-items="1">
+
+
+                        <a target="_blank" href="{{asset('home/images/main/1.png')}}" data-lightbox="gallery-image"
+                           title="Your image title here!"><img src="{{asset('home/images/main/1.png')}}" alt=""></a>
+
+
+
+                        <a target="_blank" href="{{asset('home/images/main/2.png')}}" data-lightbox="gallery-image"
+                           title="Your image title here!"><img src="{{asset('home/images/main/2.png')}}" alt=""></a>
+                        <a target="_blank" href="{{asset('home/images/main/3.png')}}" data-lightbox="gallery-image"
+                           title="Your image title here!"><img src="{{asset('home/images/main/3.png')}}" alt=""></a>
+                        <a target="_blank" href="{{asset('home/images/main/4.png')}}" data-lightbox="gallery-image"
+                           title="Your image title here!"><img src="{{asset('home/images/main/4.png')}}" alt=""></a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
     <style>
         .icon--lg {
             height: 3.25rem;
