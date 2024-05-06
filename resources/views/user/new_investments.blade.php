@@ -59,7 +59,7 @@
 
                                 <option value="1"> Account Balance</option>
                                 @if($user->canCompound==1)
-                                    <option value="2">Reinvestment from Account Balance</option>
+                                    <option value="2">Reinvestment from Profit Balance</option>
                                 @endif
                             </select>
                         </div>
